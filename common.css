@@ -1,0 +1,67 @@
+/* CSS Reset/Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #000000;
+  --secondary: #d50000;
+  --accent: #f5f5f5;
+  --text: #333333;
+  --light-gray: #f8f8f8;
+  --dark-gray: #2c2c2c;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.part-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
+  }
+/* Адаптивные медиазапросы */
+@media (max-width: 768px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+    .part-card {
+      grid-template-columns: 1fr;
+    }
+    
+    .modal-body {
+      padding: 1rem;
+    }
+    
+    .hero h1 {
+      font-size: 1.5rem;
+    }
+  }
+/* Добавьте другие общие стили */

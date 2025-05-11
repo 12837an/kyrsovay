@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главный экран</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #d50000;
+      --accent: #f5f5f5;
+      --text: #333333;
+      --light-gray: #f8f8f8;
+      --dark-gray: #2c2c2c;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-icon {
+      color: var(--secondary);
+      margin-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+    
+    /* Main Content */
+    .initial-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .top-bar {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .city-button {
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+    
+    .city-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: var(--shadow);
+      z-index: 100;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .city-button:hover .city-dropdown,
+    .city-button:focus-within .city-dropdown {
+      display: block;
+    }
+    
+    .city-dropdown ul {
+      list-style: none;
+    }
+    
+    .city-dropdown li {
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+    
+    .city-dropdown li:hover {
+      background-color: var(--accent);
+      color: var(--primary);
+    }
+    
+    .contact-info {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .white-bar {
+      height: 10px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .main-title {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('osnova.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    /* New Screen */
+    .new-screen {
+      padding: 2rem 5%;
+      background-color: white;
+      min-height: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .new-screen.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .squares-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .square {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .square:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .square-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: transparent;
+    }
+    
+    .rectangle {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .rectangle:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .image-layer, .image-layer1, .image-layer2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .text {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 0 1rem;
+    }
+    
+    .text-top, .text-bottom {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 0 1rem;
+    }
+    
+    .buy-button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .buy-button:hover {
+      background-color: #b30000;
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .buy-button-top, .buy-button-bottom {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .buy-button-top:hover, .buy-button-bottom:hover {
+      background-color: #b30000;
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    /* Cars Grid */
+    .cars-section {
+      padding: 2rem 5%;
+      background-color: var(--light-gray);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .cars-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .cars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .car-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .car-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .car-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .car-image {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .car-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .car-card:hover .car-image img {
+      transform: scale(1.05);
+    }
+    
+    .car-info {
+      padding: 1rem;
+    }
+    
+    .car-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+    }
+    
+    .car-year {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .car-year i {
+      margin-right: 0.5rem;
+      color: var(--secondary);
+    }
+    
+    .car-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    
+    .price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--secondary);
+    }
+    
+    .view-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    
+    .view-btn i {
+      margin-right: 0.3rem;
+    }
+    
+    .view-btn:hover {
+      background-color: var(--dark-gray);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 1.5rem 0;
+    }
+    
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .footer-column h3 {
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .footer-column p, 
+    .footer-column a {
+      color: #ddd;
+      margin-bottom: 0.4rem;
+      display: block;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .footer-column a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+      font-size: 0.8rem;
+    }
+    
+    .square img,
+    .rectangle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .square img,
+    .rectangle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Медиа-запросы для планшетов и десктопов */
+    @media (min-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+        padding: 2rem;
+      }
+      
+      .squares-container {
+        flex-direction: row;
+      }
+      
+      .square {
+        height: 500px;
+      }
+      
+      .rectangle {
+        height: 300px;
+      }
+      
+      .cars-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+      
+      .footer-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      
+      .top-bar {
+        flex-wrap: nowrap;
+      }
+      
+      .city-button {
+        margin-bottom: 0;
+      }
+      
+      .contact-info {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .main-title {
+        font-size: 3.5rem;
+      }
+      
+      .text {
+        font-size: 2rem;
+      }
+      
+      .text-top, .text-bottom {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <h3>АвтоЦентр</h3> 
+      </a>
+    </div>
+  </header>
+
+  <div class="initial-screen">
+    <div class="top-bar">
+      <div class="city-button" id="city-button">
+        <span id="city-name">Город</span>
+        <div class="city-dropdown">
+          <ul>
+            <li onclick="selectCity('Минск')">Минск</li>
+            <li onclick="selectCity('Брест')">Брест</li>
+            <li onclick="selectCity('Гродно')">Гродно</li>
+            <li onclick="selectCity('Витебск')">Витебск</li>
+            <li onclick="selectCity('Могилёв')">Могилёв</li>
+          </ul>
+        </div>
+      </div>
+      <div class="contact-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 0.5rem;">
+          <path d="M3.654 1.328a.678.678 0 0 1 .58-.04l2.522.84a.678.678 0 0 1 .445.648v2.421a.678.678 0 0 1-.204.48l-1.014 1.014a11.554 11.554 0 0 0 4.292 4.292l1.014-1.014a.678.678 0 0 1 .48-.204h2.421a.678.678 0 0 1 .648.445l.84 2.522a.678.678 0 0 1-.04.58 1.745 1.745 0 0 1-1.562.962c-6.08 0-11-4.92-11-11 0-.653.372-1.248.962-1.562z"/>
+        </svg>
+        <span>+375 (29) 123-45-67</span>
+      </div>
+    </div>
+
+    <div class="white-bar"></div>
+
+    <div class="main-title">
+      Добро пожаловать !
+    </div>
+  </div>
+
+  <div class="new-screen" id="new-screen">
+    <div class="squares-container">
+      <div class="square square-left">
+        <div class="image-layer"></div> 
+        <div class="text">Машины для продажи</div> 
+        <img src="6.jpg" alt="Машины для продажи">
+        <button class="buy-button" id="buy-button-left" onclick="window.location.href='buy-new-screen.html'">Каталог</button>
+      </div>
+      <div class="square square-right">
+        <div class="rectangle rectangle-top">
+          <div class="image-layer1"></div>
+          <div class="text-top">Автозапчасти</div>
+          <img src="in.jpg" alt="Автозапчасти">
+          <button class="buy-button-top" id="buy-button-top" onclick="window.location.href='parts.html'">Каталог</button>
+        </div>
+        <div class="rectangle rectangle-bottom">
+          <div class="image-layer2"></div>
+          <div class="text-bottom">Сервис</div>
+          <img src="serv.jpg" alt="Сервис">
+          <button class="buy-button-bottom" id="service-button" onclick="window.location.href='service.html'">Каталог</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Контакты</h3>
+        <p id="footer-city">г. Минск, ул. Проспект Мира, 23</p>
+        <p>Телефон: +375 (29) 123-45-67</p>
+        <p>Email: info@porsche-minsk.by</p>
+      </div>
+      <div class="footer-column">
+        <h3>Часы работы</h3>
+        <p>Пн-Пт: 09:00 - 20:00</p>
+        <p>Сб: 10:00 - 18:00</p>
+        <p>Вс: выходной</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2023 АвтоЦентр. Все права защищены.</p>
+      <p>Старовойтова Анна Евгеньевна, ФИТ, ИСиТ 1 группа, 2025</p>
+    </div>
+  </footer>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedCity = localStorage.getItem('selectedCity');
+      if (savedCity) {
+        document.getElementById('city-name').textContent = savedCity;
+        updateFooterCity(savedCity);
+      }
+      
+      const observerOptions = {
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      
+      
+      const sections = document.querySelectorAll('.new-screen, .cars-section');
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+
+   
+    function selectCity(cityName) {
+      localStorage.setItem('selectedCity', cityName);
+      document.getElementById('city-name').textContent = cityName;
+      updateFooterCity(cityName);
+    }
+    
+    function updateFooterCity(cityName) {
+      const cities = {
+        'Минск': 'г. Минск, ул. Автозаводская, 12',
+        'Брест': 'г. Брест, ул. Московская, 150',
+        'Гродно': 'г. Гродно, пр-т Космонавтов, 48',
+        'Витебск': 'г. Витебск, ул. Чкалова, 33',
+        'Могилёв': 'г. Могилёв, ул. Первомайская, 65'
+      };
+      document.getElementById('footer-city').textContent = cities[cityName] || cities['Минск'];
+    }
+  </script>
+</body>
+</html>

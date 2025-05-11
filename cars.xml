@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cars>
+  <car id="1">
+    <name>Porsche 911 GT3</name>
+    <year>2023</year>
+    <price>579761</price>
+    <image>911_2023_GT3.jpg</image>
+    <badge>Новинка</badge>
+    <link>page1.html</link>
+  </car>
+  <car id="2">
+    <name>Porsche 911 (993)</name>
+    <year>1997</year>
+    <price>309935</price>
+    <image>911_1997.jpg</image>
+    <link>page2.html</link>
+  </car>
+  <car id="3">
+    <name>Porsche 935</name>
+    <year>1978</year>
+    <price>911575</price>
+    <image>935_o.jpg</image>
+    <badge>Коллекция</badge>
+    <link>page3.html</link>
+  </car>
+  <car id="4">
+    <name>Porsche 718 Cayman</name>
+    <year>2022</year>
+    <price>262533</price>
+    <image>Porsche-718.jpg</image>
+    <link>page4.html</link>
+  </car>
+  <car id="5">
+    <name>Porsche Mission R</name>
+    <year>2021</year>
+    <price>По запросу</price>
+    <image>Mission-R.jpg</image>
+    <badge>Концепт</badge>
+    <link>page5.html</link>
+  </car>
+  <car id="6">
+    <name>Porsche Vision 357</name>
+    <year>2023</year>
+    <price>По запросу</price>
+    <image>Vision-357.jpg</image>
+    <link>page6.html</link>
+  </car>
+  <car id="7">
+    <name>Porsche 918 Spyder</name>
+    <year>2015</year>
+    <price>1093890</price>
+    <image>918-Spyder.jpg</image>
+    <badge>Гиперкар</badge>
+    <link>page7.html</link>
+  </car>
+  <car id="8">
+    <name>Porsche Cayenne GTS</name>
+    <year>2020</year>
+    <price>357337</price>
+    <image>Cayenne-GTS_2020.jpg</image>
+    <link>page8.html</link>
+  </car>
+</cars>

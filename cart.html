@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление заказа | Porsche Parts</title>
+  <link rel="stylesheet" href="st.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="dropdown">
+        <button class="dropdown-btn">
+           Меню
+        </button>
+        <div class="dropdown-content">
+          <a href="proj.html">Главная страница</a>
+          <a href="buy-new-screen.html">Каталог машин</a>
+          <a href="service.html">Сервис</a>
+          <a href="parts.html">Автозапчасти</a>
+        </div>
+      </div>
+      <div style="font-weight: 900; font-size: 1.8rem;">
+        АвтоЦентр
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="checkout-container">
+      <div class="cart-summary">
+        <h2 class="section-title">Ваш заказ</h2>
+        <div class="cart-items" id="cart-items">
+          
+        </div>
+        <div class="cart-total">
+          <span>Итого:</span>
+          <span class="cart-total-price" id="cart-total-price">0 BYN</span>
+        </div>
+      </div>
+      
+      <div class="checkout-form">
+        <h2 class="section-title">Данные для оформления</h2>
+        <form id="order-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">Имя</label>
+              <input type="text" id="first-name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Фамилия</label>
+              <input type="text" id="last-name" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Адрес доставки</label>
+            <textarea id="address" rows="3" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="payment">Способ оплаты</label>
+            <select id="payment" required>
+              <option value="">Выберите способ оплаты</option>
+              <option value="card">Кредитная карта</option>
+              <option value="cash">Наличные при получении</option>
+              <option value="online">Онлайн-оплата</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="comments">Комментарий к заказу</label>
+            <textarea id="comments" rows="2"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Подтвердить заказ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+     
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalPrice = document.getElementById('cart-total-price');
+      const orderForm = document.getElementById('order-form');
+      
+     
+      function renderCartItems() {
+        cartItemsContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Корзина пуста</p>';
+            cartTotalPrice.textContent = '0 BYN';
+            return;
+        }
+
+        let total = 0;
+        
+        cart.forEach(item => {
+            
+            const price = typeof item.price === 'number' ? item.price : 
+                         item.price === 'По запросу' ? 0 : 
+                         parseFloat(item.price.toString().replace(/[^\d.]/g, '')) || 0;
+            
+            total += price;
+
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <div class="cart-item-image">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='placeholder.jpg'">
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-model">Год: ${item.year || 'Не указан'}</div>
+                    <div class="cart-item-price">${price > 0 ? price.toLocaleString('ru-RU') + ' BYN' : 'По запросу'}</div>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+
+        // Обновляем итоговую сумму с валютой
+        cartTotalPrice.textContent = total > 0 ? `${total.toLocaleString('ru-RU')} BYN` : 'По запросу';
+      }
+      
+      // Обработка отправки формы
+      orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Рассчитываем общую сумму, игнорируя товары с ценой "По запросу"
+        const total = cart.reduce((sum, item) => {
+            const price = typeof item.price === 'number' ? item.price : 
+                         item.price === 'По запросу' ? 0 : 
+                         parseFloat(item.price.toString().replace(/[^\d.]/g, '')) || 0;
+            return sum + price;
+        }, 0);
+        
+        // Собираем данные формы
+        const formData = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            payment: document.getElementById('payment').value,
+            comments: document.getElementById('comments').value,
+            items: cart,
+            total: total
+        };
+            
+        // Здесь можно отправить данные на сервер
+        console.log('Данные заказа:', formData);
+        
+        // Показываем сообщение об успешном оформлении
+        alert('Ваш заказ успешно оформлен! Спасибо за покупку!');
+        
+        // Очищаем корзину и обновляем отображение
+        localStorage.removeItem('cart');
+        renderCartItems(); // Обновляем отображение корзины
+        
+        // Очищаем форму
+        orderForm.reset();
+      });
+      
+      // Первоначальная загрузка корзины
+      renderCartItems();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Porsche Parts | Оригинальные запчасти</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--[if IE]>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <![endif]-->
+  <style>
+    /* CSS Reset */
+    html {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, li, 
+    form, label, footer, header, nav, section {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    
+    /* Variables */
+    :root { --primary: #000000;
+      --secondary: #d50000;
+      --accent: #f5f5f5;
+      --text: #333333;
+      --light-gray: #f8f8f8;
+      --dark-gray: #2c2c2c;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Base Styles */
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background-color: var(--light-gray);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Layout */
+    .header-container,
+    .container,
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 0;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      -webkit-box-shadow: var(--shadow);
+              box-shadow: var(--shadow);
+    }
+    
+    .header-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      position: relative;
+    }
+    
+    .logo {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: white;
+      text-decoration: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .logo-icon {
+      color: var(--secondary);
+      margin-right: 0.5rem;
+      font-size: 1.8rem;
+    }
+    
+    /* Navigation */
+    .nav-right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-left: auto;
+    }
+    
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.3rem;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+    
+    .cart-icon:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--secondary);
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    /* Main Content */
+    .container {
+      margin: 2rem auto;
+    }
+    
+    .hero {
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background: -o-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      border-radius: 10px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+      -webkit-box-shadow: var(--shadow);
+              box-shadow: var(--shadow);
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    
+    /* Parts Grid */
+    .parts-grid {
+      display: -ms-grid;
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    /* Fallback for older browsers */
+    @supports not (display: grid) {
+      .parts-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        margin: 3rem -1rem;
+      }
+      
+      .part-card {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 280px;
+                flex: 1 1 280px;
+        margin: 1rem;
+      }
+    }
+    
+    .part-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      -webkit-box-shadow: var(--shadow);
+              box-shadow: var(--shadow);
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    
+    .part-card:hover {
+      -webkit-transform: translateY(-10px);
+          -ms-transform: translateY(-10px);
+              transform: translateY(-10px);
+      -webkit-box-shadow: var(--shadow-hover);
+              box-shadow: var(--shadow-hover);
+    }
+    
+    .part-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .part-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .part-image img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+    }
+    
+    .part-card:hover .part-image img {
+      -webkit-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+              transform: scale(1.05);
+    }
+    
+    .part-info {
+      padding: 1.5rem;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    
+    .part-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+    }
+    
+    .part-compatibility {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .part-compatibility i {
+      margin-right: 0.5rem;
+      color: var(--secondary);
+    }
+    
+    .part-price {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-top: auto;
+    }
+    
+    .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--secondary);
+    }
+    
+    .add-to-cart {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      font-weight: 500;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .add-to-cart i {
+      margin-right: 0.5rem;
+    }
+    
+    .add-to-cart:hover {
+      background-color: var(--dark-gray);
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      opacity: 0;
+      -webkit-transition: opacity 0.3s ease;
+      -o-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background-color: white;
+      width: 95%;
+      max-width: 800px;
+      border-radius: 10px;
+      overflow: hidden;
+      -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      -webkit-transform: translateY(20px);
+          -ms-transform: translateY(20px);
+              transform: translateY(20px);
+      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: -webkit-transform 0.3s ease;
+      -o-transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+      max-height: 90vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      overflow-y: auto;
+    }
+    
+    .modal.active .modal-content {
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0);
+    }
+    
+    .modal-header {
+      padding: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+    }
+    
+    .close-modal:hover {
+      -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    /* Fallback for older browsers */
+    @supports not (display: grid) {
+      .modal-body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+      }
+      
+      .modal-image {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 300px;
+                flex: 1 1 300px;
+      }
+      
+      .modal-details {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 300px;
+                flex: 1 1 300px;
+      }
+    }
+    
+    .modal-image {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 300px;
+    }
+    
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+    }
+    
+    .modal-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gray);
+    }
+    
+    .modal-description {
+      margin-bottom: 1.5rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    .select-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .select-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .select-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+    }
+    
+    .select-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+              box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .modal-actions {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: var(--accent);
+      border-top: 1px solid #eee;
+    }
+    
+    .modal-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    
+    .modal-add-to-cart {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      font-weight: 600;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .modal-add-to-cart i {
+      margin-right: 0.5rem;
+    }
+    
+    .modal-add-to-cart:hover {
+      background-color: #b30000;
+      -webkit-transform: translateY(-2px);
+          -ms-transform: translateY(-2px);
+              transform: translateY(-2px);
+    }
+    
+    /* Cart Modal */
+    .cart-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100%;
+      background-color: white;
+      -webkit-box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+              box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
+      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: -webkit-transform 0.3s ease;
+      -o-transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+      z-index: 2000;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    
+    .cart-modal.active {
+      -webkit-transform: translateX(0);
+          -ms-transform: translateX(0);
+              transform: translateX(0);
+    }
+    
+    .cart-header {
+      padding: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .cart-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+    .close-cart {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .cart-items {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+    
+    .cart-item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-right: 1rem;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+    }
+    
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+    }
+    
+    .cart-item-details {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+    }
+    
+    .cart-item-name {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    
+    .cart-item-model {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cart-item-price {
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    
+    .cart-item-remove {
+      color: #999;
+      font-size: 0.9rem;
+      cursor: pointer;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-top: 0.5rem;
+    }
+    
+    .cart-item-remove i {
+      margin-right: 0.3rem;
+    }
+    
+    .cart-item-remove:hover {
+      color: var(--secondary);
+    }
+    
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid #eee;
+      background-color: var(--accent);
+    }
+    
+    .cart-total {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .cart-total-price {
+      color: var(--secondary);
+    }
+    
+    .checkout-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+    
+    .checkout-btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .checkout-btn:hover {
+      background-color: #b30000;
+      -webkit-transform: translateY(-2px);
+          -ms-transform: translateY(-2px);
+              transform: translateY(-2px);
+    }
+    
+    /* Empty Cart */
+    .empty-cart {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .empty-cart i {
+      font-size: 3rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+    
+    .empty-cart p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-column h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-column p, 
+    .footer-column a {
+      color: #ddd;
+      margin-bottom: 0.5rem;
+      display: block;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .modal-body {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-image {
+        height: 200px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cart-modal {
+        width: 100%;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .logo {
+        font-size: 1.2rem;
+      }
+      
+      .parts-grid {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo {
+        position: static;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+        margin-bottom: 1rem;
+      }
+      
+      .nav-right {
+        margin-left: 0;
+      }
+      
+      .hero {
+        height: 300px;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .parts-grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-body {
+        padding: 1rem;
+      }
+      
+      .modal-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+                align-items: stretch;
+      }
+      
+      .modal-price {
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+    }
+    
+    /* IE11 specific fixes */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      .parts-grid {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        margin: 0 -1rem;
+      }
+      
+      .part-card {
+        -ms-flex: 0 0 calc(33.333% - 2rem);
+            flex: 0 0 calc(33.333% - 2rem);
+        margin: 1rem;
+      }
+      
+      .footer-container {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+      }
+      
+      .footer-column {
+        -ms-flex: 0 0 calc(33.333% - 2rem);
+            flex: 0 0 calc(33.333% - 2rem);
+        margin: 0 1rem 1.5rem;
+      }
+      
+      .modal-body {
+        display: -ms-flexbox;
+        display: flex;
+      }
+      
+      .modal-image {
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+        padding-right: 1rem;
+      }
+      
+      .modal-details {
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+        padding-left: 1rem;
+      }
+    }
+
+    .nav-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.header-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.8rem;
+  flex: 1; /* чтобы занимал все доступное пространство и центрировался */
+}
+
+.section-title {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  color: var(--dark-gray);
+  text-align: left;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="proj.html" class="nav-btn">Главная</a>
+      <div class="header-title">Автозапчасти</div>
+      <div class="nav-right">
+        <div class="cart-icon" id="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Оригинальные запчасти Porsche</h1>
+      <p>Высокое качество и гарантия совместимости для вашего автомобиля</p>
+    </section>
+    
+    <h2 class="section-title">Автозапчасти</h2>
+    
+    <div class="parts-grid">
+      <!-- Карточка товара 1 -->
+      <div class="part-card" data-part-id="1">
+        <div class="part-badge">Хит</div>
+        <div class="part-image">
+          <img src="dvigatel.jpg" alt="Двигатель Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Двигатель</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: 911, Cayenne, Panamera
+          </div>
+          <div class="part-price">
+            <div class="price">4500 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка товара 2 -->
+      <div class="part-card" data-part-id="2">
+        <div class="part-image">
+          <img src="corobka.jpg" alt="Коробка передач Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Коробка передач</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: 911, Cayenne, Macan
+          </div>
+          <div class="part-price">
+            <div class="price">7000 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка товара 3 -->
+      <div class="part-card" data-part-id="3">
+        <div class="part-badge">Новинка</div>
+        <div class="part-image">
+          <img src="far.jpg" alt="Фары Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Фары</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: Все модели
+          </div>
+          <div class="part-price">
+            <div class="price">3000 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка товара 4 -->
+      <div class="part-card" data-part-id="4">
+        <div class="part-image">
+          <img src="wheel.jpeg" alt="Колеса Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Колеса</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: Все модели
+          </div>
+          <div class="part-price">
+            <div class="price">1000 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка товара 5 -->
+      <div class="part-card" data-part-id="5">
+        <div class="part-image">
+          <img src="podveska.webp" alt="Подвеска Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Подвеска</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: 911, Cayman, Boxster
+          </div>
+          <div class="part-price">
+            <div class="price">7500 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Карточка товара 6 -->
+      <div class="part-card" data-part-id="6">
+        <div class="part-badge">Скидка</div>
+        <div class="part-image">
+          <img src="mas.jpg" alt="Масло Porsche" loading="lazy">
+        </div>
+        <div class="part-info">
+          <h3 class="part-name">Масло</h3>
+          <div class="part-compatibility">
+            <i class="fas fa-check-circle"></i>
+            Совместимость: 911, Cayenne, Panamera
+          </div>
+          <div class="part-price">
+            <div class="price">300 BYN</div>
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Купить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно товара -->
+  <div class="modal" id="part-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-part-name">Двигатель</h3>
+        <button class="close-modal" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modal-part-image" src="dvigatel.jpg" alt="Двигатель Porsche" loading="lazy">
+        </div>
+        <div class="modal-details">
+          <h3>Описание</h3>
+          <p class="modal-description" id="modal-part-description">
+            Оригинальные тормозные колодки Porsche обеспечивают оптимальное торможение в любых условиях. Изготовлены из высококачественных материалов, обеспечивающих долгий срок службы и стабильную работу тормозной системы. Совместимы с моделями 911 (все поколения), Cayenne (2010-2023), Panamera (2010-2023).
+          </p>
+          
+          <div class="select-group">
+            <label for="model-select">Выберите модель автомобиля</label>
+            <select class="model-select" id="model-select">
+              <option value="">-- Выберите модель --</option>
+              <option value="911">Porsche 911</option>
+              <option value="cayenne">Porsche Cayenne</option>
+              <option value="panamera">Porsche Panamera</option>
+              <option value="macan">Porsche Macan</option>
+              <option value="taycan">Porsche Taycan</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <div class="modal-price" id="modal-part-price">12 500 BYN</div>
+        <button class="modal-add-to-cart" id="add-to-cart-btn">
+          <i class="fas fa-cart-plus"></i> Добавить в корзину
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Корзина -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-header">
+      <h3 class="cart-title">Ваша корзина</h3>
+      <button class="close-cart" id="close-cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+     
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Итого:</span>
+        <span class="cart-total-price" id="cart-total-price">0 BYN</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">
+        <i class="fas fa-credit-card"></i> Оформить заказ
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Контакты</h3>
+        <p>г. Минск, ул. Проспект Мира, 23</p>
+        <p>Телефон: +375 (29) 123-45-67</p>
+        <p>Email: info@porsche-minsk.by</p>
+      </div>
+      <div class="footer-column">
+        <h3>Часы работы</h3>
+        <p>Пн-Пт: 09:00 - 20:00</p>
+        <p>Сб: 10:00 - 18:00</p>
+        <p>Вс: выходной</p>
+      </div>
+      <div class="footer-column">
+        <h3>О компании</h3>
+        <p>Официальный поставщик оригинальных запчастей Porsche в Беларуси</p>
+        <p>Гарантия на все запчасти</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 Porsche Service. Все права защищены.</p>
+    </div>
+  </footer>
+
+  
+
+  <script>
+    // Проверка поддержки localStorage
+    function storageAvailable(type) {
+      try {
+        var storage = window[type],
+          x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+      } catch(e) {
+        return false;
+      }
+    }
+    
+    // Данные товаров
+    var partsData = {
+      1: {
+        name: "Двигатель",
+        price: 4500,
+        image: "dvigatel.jpg",
+        description: "Оригинальный двигатель Porsche с оптимальными характеристиками мощности и расхода топлива. Полностью совместим с моделями 911 (все поколения), Cayenne (2010-2023), Panamera (2010-2023). Гарантия 2 года."
+      },
+      2: {
+        name: "Коробка передач",
+        price: 7000,
+        image: "corobka.jpg",
+        description: "Автоматическая коробка передач Porsche с плавным переключением и адаптивными режимами работы. Совместима с моделями 911 (2012-2023), Cayenne (2015-2023), Macan (2014-2023). Гарантия 1 год."
+      },
+      3: {
+        name: "Фары",
+        price: 3000,
+        image: "far.jpg",
+        description: "Светодиодные фары Porsche с интеллектуальной системой освещения. Обеспечивают отличную видимость в любых условиях. Подходят для всех моделей Porsche. В комплекте с системой автоматической регулировки."
+      },
+      4: {
+        name: "Колеса",
+        price: 1000,
+        image: "wheel.jpeg",
+        description: "Легкосплавные диски Porsche с улучшенными аэродинамическими характеристиками. Доступны в различных размерах для всех моделей. В комплекте с шинами RunFlat."
+      },
+      5: {
+        name: "Подвеска",
+        price: 7500,
+        image: "podveska.webp",
+        description: "Спортивная подвеска Porsche с адаптивными амортизаторами. Обеспечивает комфорт и управляемость. Совместима с моделями 911 (2012-2023), Cayman (2013-2023), Boxster (2013-2023)."
+      },
+      6: {
+        name: "Масло",
+        price: 300,
+        image: "mas.jpg",
+        description: "Синтетическое моторное масло Porsche специально разработано для высокопроизводительных двигателей. Обеспечивает максимальную защиту и снижает износ. Рекомендовано для моделей 911, Cayenne, Panamera."
+      }
+    };
+    
+    // Инициализация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      var hasStorage = storageAvailable('localStorage');
+      
+      // Инициализация корзины
+      var cart = hasStorage ? JSON.parse(localStorage.getItem('cart')) || [] : [];
+      
+
+      var partCards = document.querySelectorAll('.part-card');
+      var partModal = document.getElementById('part-modal');
+      var closeModalBtn = document.getElementById('close-modal');
+      var modalPartName = document.getElementById('modal-part-name');
+      var modalPartImage = document.getElementById('modal-part-image');
+      var modalPartDescription = document.getElementById('modal-part-description');
+      var modalPartPrice = document.getElementById('modal-part-price');
+      var modelSelect = document.getElementById('model-select');
+      var addToCartBtn = document.getElementById('add-to-cart-btn');
+      var cartIcon = document.getElementById('cart-icon');
+      var cartModal = document.getElementById('cart-modal');
+      var closeCartBtn = document.getElementById('close-cart');
+      var cartItemsContainer = document.getElementById('cart-items');
+      var cartTotalPrice = document.getElementById('cart-total-price');
+      var cartCount = document.getElementById('cart-count');
+      var checkoutBtn = document.getElementById('checkout-btn');
+      
+      // Текущий выбранный товар
+      var currentPart = null;
+      
+      // Форматирование цены
+      function formatPrice(price) {
+        return price.toLocaleString('ru-RU') + ' BYN';
+      }
+      
+    
+      function updateCart() {
+      
+        cartItemsContainer.innerHTML = '';
+        
+        // Добавляем товары
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `
+            <div class="empty-cart">
+              <i class="fas fa-shopping-cart"></i>
+              <p>Ваша корзина пуста</p>
+              <button class="btn" id="continue-shopping-btn">Продолжить покупки</button>
+            </div>
+          `;
+          
+          document.getElementById('continue-shopping-btn').addEventListener('click', function() {
+            cartModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          });
+        } else {
+          cart.forEach(function(item) {
+            var cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+              <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+              </div>
+              <div class="cart-item-details">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-model">Модель: ${item.model}</div>
+                <div class="cart-item-price">${formatPrice(item.price)}</div>
+                <div class="cart-item-remove" data-item-id="${item.id}">
+                  <i class="fas fa-trash-alt"></i> Удалить
+                </div>
+              </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+          });
+        }
+        
+        // Обновляем итоговую сумму
+        var total = cart.reduce(function(sum, item) {
+          return sum + item.price;
+        }, 0);
+        cartTotalPrice.textContent = formatPrice(total);
+        
+        // Обновляем счетчик товаров
+        cartCount.textContent = cart.length;
+      }
+      
+      // Открытие модального окна товара
+      partCards.forEach(function(card) {
+        var addToCartBtn = card.querySelector('.add-to-cart');
+        
+        addToCartBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var partId = card.getAttribute('data-part-id');
+          currentPart = partsData[partId];
+          
+          modalPartName.textContent = currentPart.name;
+          modalPartImage.src = currentPart.image;
+          modalPartDescription.textContent = currentPart.description;
+          modalPartPrice.textContent = formatPrice(currentPart.price);
+          modelSelect.value = '';
+          
+          partModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Закрытие модального окна
+      closeModalBtn.addEventListener('click', function() {
+        partModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Добавление товара в корзину
+      addToCartBtn.addEventListener('click', function() {
+        if (!modelSelect.value) {
+          alert('Пожалуйста, выберите модель автомобиля');
+          return;
+        }
+        
+        var selectedModel = modelSelect.options[modelSelect.selectedIndex].text;
+        
+        cart.push({
+          id: Date.now(),
+          partId: Object.keys(partsData).find(function(key) { return partsData[key].name === currentPart.name; }),
+          name: currentPart.name,
+          model: selectedModel,
+          price: currentPart.price,
+          image: currentPart.image
+        });
+        
+        if (hasStorage) {
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        updateCart();
+        partModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+  
+        cartModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      
+ 
+      cartIcon.addEventListener('click', function() {
+        cartModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      
+   
+      closeCartBtn.addEventListener('click', function() {
+        cartModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+      
+      
+      cartItemsContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('cart-item-remove') || e.target.closest('.cart-item-remove')) {
+          var itemId = parseInt(e.target.getAttribute('data-item-id') || 
+                        e.target.closest('.cart-item-remove').getAttribute('data-item-id'));
+          cart = cart.filter(function(item) { return item.id !== itemId; });
+          if (hasStorage) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+          }
+          updateCart();
+        }
+      });
+      
+      checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Корзина пуста. Добавьте товары перед оформлением заказа.');
+          return;
+        }
+        
+      
+        if (hasStorage) {
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        window.location.href = "cart.html";
+      });
+      
+      
+      window.addEventListener('click', function(e) {
+        if (e.target === partModal) {
+          partModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+        if (e.target === cartModal) {
+          cartModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+    
+      updateCart();
+    });
+  </script>
+</body>
+</html>

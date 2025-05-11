@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Porsche 935 2023 | Porsche Центр</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #d50000;
+      --accent: #f5f5f5;
+      --text: #333333;
+      --light-gray: #f8f8f8;
+      --dark-gray: #2c2c2c;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+ 
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+    
+    .header-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+  
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('osnova.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      color: white;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow);
+      padding: 0 4rem;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn:hover {
+      background-color: #b30000;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .gallery-item {
+      height: 300px;
+      overflow: hidden;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      display: block;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+  
+    .details-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .specs {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .specs h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark-gray);
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .spec-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .spec-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+    }
+    
+    .spec-item p {
+      font-size: 1rem;
+      color: #555;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .description {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .description h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark-gray);
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .description p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+  
+    .price-section {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .price-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark-gray);
+    }
+    
+    .price-tag {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .rarity-notice {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .btn-secondary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--dark-gray);
+    }
+    
+   
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .modal-content {
+      background-color: white;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+    
+    .modal-header {
+      padding: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .close-modal:hover {
+      transform: rotate(90deg);
+    }
+    
+    .modal-body {
+      padding: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      background-color: var(--accent);
+      border-top: 1px solid #eee;
+    }
+    
+    .submit-btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+    
+    .submit-btn:hover {
+      background-color: #b30000;
+      transform: translateY(-2px);
+    }
+    
+  
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-column h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-column p, 
+    .footer-column a {
+      color: #ddd;
+      margin-bottom: 0.5rem;
+      display: block;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+  
+    @media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .details-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-header,
+  .modal-actions {
+    padding: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .close-modal {
+    font-size: 1.5rem;
+  }
+
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin-bottom: 1rem;
+  }
+
+  .price-tag {
+    font-size: 2rem;
+  }
+
+  .price-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-item {
+    height: auto;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-container" style="font-weight: 900; font-size: 1.8rem;">
+        АвтоЦентр
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Porsche 935 2023</h1>
+      <p>Эксклюзивный гоночный автомобиль для дорог общего пользования</p>
+    </section>
+    
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="1997_1.png" alt="Porsche 935 - вид спереди">
+      </div>
+      <div class="gallery-item">
+        <img src="935_3.png" alt="Porsche 935 - вид сбоку">
+      </div>
+      <div class="gallery-item">
+        <img src="935_2.jpg" alt="Porsche 935 - интерьер">
+      </div>
+    </div>
+    
+    <div class="details-container">
+      <div class="specs">
+        <h2>Технические характеристики</h2>
+        
+        <div class="spec-item">
+          <h3>Цвет кузова</h3>
+          <p>Белый цвет с динамичными полосами Martini — темно-синие, небесно-голубые и алые</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Цвета салона и материалы</h3>
+          <p>Черный алькантара с контрастными швами, карбоновые элементы, гоночные сиденья</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Коробка передач</h3>
+          <p>7-ступенчатая роботизированная PDK (с подрулевыми лепестками)</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Двигатель</h3>
+          <p>3.8-литровый битурбированный V6 (на базе 911 GT2 RS)</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Мощность</h3>
+          <p>700 л.с.</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Год выпуска</h3>
+          <p>2023 (ограниченный тираж, всего 77 экземпляров)</p>
+        </div>
+        
+        <div class="spec-item">
+          <h3>Пробег</h3>
+          <p>3 500 км (коллекционный экземпляр, минимальный пробег)</p>
+        </div>
+      </div>
+      
+      <div class="description">
+        <h2>Описание модели</h2>
+        <p>Porsche 935 2023 года – это яркий пример автоспорта, пронесенного через десятилетия. Оснащенный высокоэффективным 3.8-литровым турбированным двигателем, автомобиль развивает невероятные 700 л.с., что позволяет ему ускоряться до 100 км/ч за 3.0 секунды.</p>
+        <p>Автомобиль идеально сочетает агрессивные элементы дизайна гоночных автомобилей с комфортом и роскошью для дороги. Его аэродинамический кузов с обвесами, характерными для гоночных машин, позволяет достигать невероятной устойчивости на высокой скорости, а система PDK обеспечивает молниеносные переключения передач, гарантируя потрясающую маневренность.</p>
+        <p>Салон выполнен в стиле, который сочетает в себе спортивную жесткость и высококлассные материалы, такие как кожа и алькантара, создавая атмосферу роскоши и мощности. Каждая деталь продумана для максимального комфорта и удобства водителя.</p>
+        <p>Porsche 935 2023 года – это не просто автомобиль, это настоящее произведение искусства, которое продолжает легенду Porsche и вдохновляет поклонников автоспорта по всему миру.</p>
+      </div>
+    </div>
+    
+    <div id="price" class="price-section">
+      <h2>Стоимость автомобиля</h2>
+      <div class="price-tag">911 575 BYN</div>
+      <p class="rarity-notice">*Ограниченный тираж - всего 77 экземпляров в мире</p>
+      <div class="cta-buttons">
+        <button id="book-btn" class="btn">Забронировать</button>
+        <button id="consult-btn" class="btn btn-secondary">Консультация</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно бронирования -->
+  <div class="modal" id="booking-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Бронирование Porsche 935</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form">
+          <div class="form-group">
+            <label for="booking-name">Ваше имя</label>
+            <input type="text" id="booking-name" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-phone">Телефон</label>
+            <input type="tel" id="booking-phone" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email">Email</label>
+            <input type="email" id="booking-email" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-date">Желаемая дата просмотра</label>
+            <input type="date" id="booking-date" >
+          </div>
+          <div class="form-group">
+            <label for="booking-comment">Дополнительные пожелания</label>
+            <textarea id="booking-comment" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" form="booking-form" class="submit-btn">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно консультации -->
+  <div class="modal" id="consultation-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Консультация по Porsche 935</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="consultation-form">
+          <div class="form-group">
+            <label for="consult-name">Ваше имя</label>
+            <input type="text" id="consult-name" required>
+          </div>
+          <div class="form-group">
+            <label for="consult-phone">Телефон</label>
+            <input type="tel" id="consult-phone" required>
+          </div>
+          <div class="form-group">
+            <label for="consult-email">Email</label>
+            <input type="email" id="consult-email" required>
+          </div>
+          <div class="form-group">
+            <label for="consult-method">Предпочтительный способ связи</label>
+            <select id="consult-method" required>
+              <option value="">Выберите способ</option>
+              <option value="phone">Телефонный звонок</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="email">Электронная почта</option>
+              <option value="meeting">Личная встреча</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consult-question">Ваш вопрос</label>
+            <textarea id="consult-question" rows="3" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" form="consultation-form" class="submit-btn">Запросить консультацию</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Контакты</h3>
+        <p>г. Минск, ул. Проспект Мира, 23</p>
+        <p>Телефон: +375 (29) 123-45-67</p>
+        <p>Email: exclusive@porsche-minsk.by</p>
+      </div>
+      <div class="footer-column">
+        <h3>Часы работы</h3>
+        <p>Пн-Пт: 09:00 - 20:00</p>
+        <p>Сб: 10:00 - 18:00</p>
+        <p>Вс: выходной</p>
+      </div>
+      
+    </div>
+    <div class="copyright">
+      <p>© 2023 Porsche Центр. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Установка минимальной даты (сегодня)
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('booking-date').min = today;
+    
+    // Элементы DOM
+    const bookBtn = document.getElementById('book-btn');
+    const consultBtn = document.getElementById('consult-btn');
+    const bookingModal = document.getElementById('booking-modal');
+    const consultationModal = document.getElementById('consultation-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    
+    // Открытие модального окна бронирования
+    bookBtn.addEventListener('click', () => {
+      bookingModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Открытие модального окна консультации
+    consultBtn.addEventListener('click', () => {
+      consultationModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Закрытие модальных окон
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        bookingModal.classList.remove('active');
+        consultationModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+    });
+    
+    // Закрытие при клике вне модального окна
+    window.addEventListener('click', (e) => {
+      if (e.target === bookingModal) {
+        bookingModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      if (e.target === consultationModal) {
+        consultationModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Обработка формы бронирования
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Ваша заявка на бронирование Porsche 935 отправлена! Наш менеджер свяжется с вами в ближайшее время для подтверждения.');
+      bookingModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      e.target.reset();
+    });
+    
+    // Обработка формы консультации
+    document.getElementById('consultation-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Запрос на консультацию по Porsche 935 отправлен! Наш эксперт свяжется с вами выбранным способом.');
+      consultationModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
